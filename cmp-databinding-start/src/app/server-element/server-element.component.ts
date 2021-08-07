@@ -18,8 +18,6 @@ export class ServerElementComponent implements
     content: string
   };
 
-
-  //onChange method implementation - lect 78
   //changed in app-component ts - onChangeFirst()
   @Input() name: string;
 
