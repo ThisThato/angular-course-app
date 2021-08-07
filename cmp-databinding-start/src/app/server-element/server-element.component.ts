@@ -1,4 +1,3 @@
-import { ElementRef, ViewChild } from '@angular/core';
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -11,10 +10,6 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, Component, DoC
 
 export class ServerElementComponent implements
   OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewChecked, OnDestroy {
-
-
-  //lect-79
-  @ViewChild("heading") header: ElementRef;
 
   //property binding
   @Input('srvElement') element: {
@@ -34,9 +29,9 @@ export class ServerElementComponent implements
 
   //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
   //Add '${implements OnChanges}' to the class.
-  //- lect 78 & 79
+  //- lect 78
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("on Changes called...")//- lect-79
+    console.log("on Changes called...")
   }
 
   //Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.
@@ -48,7 +43,6 @@ export class ServerElementComponent implements
 
   ngOnInit(): void {
     console.log("on Init called...")
-    console.log("Text Content: " + this.header.nativeElement.textContent)
   }
 
   //Called after ngOnInit when the component's or directive's content has been initialized.
@@ -80,12 +74,5 @@ export class ServerElementComponent implements
 
   }
 
-  //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-  //Add 'implements AfterViewInit' to the class.
-  //- lect 78 
-  ngAfterViewInit(): void {
-    console.log("View init called...")
-    console.log("Text Content for view init: " + this.header.nativeElement.textContent)//-lect-79
-  }
 
 }
