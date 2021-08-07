@@ -1,4 +1,4 @@
-import { ElementRef, ViewChild } from '@angular/core';
+import { ContentChild, ElementRef, ViewChild } from '@angular/core';
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -12,6 +12,8 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, Component, DoC
 export class ServerElementComponent implements
   OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewChecked, OnDestroy {
 
+  //lect - 80
+  @ContentChild("contentParagraph") paragraph: ElementRef
 
   //lect-79
   @ViewChild("heading") header: ElementRef;
@@ -46,16 +48,19 @@ export class ServerElementComponent implements
     console.log("do check called...")
   }
 
+  //lect - 79, 80
   ngOnInit(): void {
     console.log("on Init called...")
     console.log("Text Content: " + this.header.nativeElement.textContent)
+    console.log("Text content" + this.paragraph.nativeElement.textContent)
   }
 
   //Called after ngOnInit when the component's or directive's content has been initialized.
   //Add 'implements AfterContentInit' to the class.
-  //- lect 78
+  //- lect 78, 80
   ngAfterContentInit(): void {
     console.log("After content init called...")
+    console.log("Text content" + this.paragraph.nativeElement.textContent)
   }
 
   //Called after every check of the component's or directive's content.

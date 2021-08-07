@@ -12,8 +12,7 @@
       <!-- binding the [name] property to onChange() -->
       <app-server-element *ngFor="let serverElement of serverElements"
         [srvElement]="serverElement" [name]="serverElement.name">
-
-        <p>
+        <p #contentParagraph>
           <strong *ngIf="serverElement.type === 'server'"
             style="color: red; ">{{ serverElement.content }}</strong>
           <em
